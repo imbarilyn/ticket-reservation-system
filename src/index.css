@@ -231,34 +231,56 @@ font-style: normal;
 
 /*custom colors*/
 @theme {
-    --color-casablanca-50: #fef6ee;
-    --color-casablanca100: #fcead8;
-    --color-casablanca-200: #f8d1b0;
-    --color-casablanca-300: #f4af7d;
-    --color-casablanca-400: #ee8449;
-    --color-casablanca-500: #eb6e33;
-    --color-casablanca-600: #db4c1b;
-    --color-casablanca-700: #b63818;
-    --color-casablanca-800: #912e1b;
-    --color-casablanca-900: #752919;
-    --color-casablanca-950: #3f110b;
+    --color-inch-worm-50: #f8fee7;
+    --color-inch-worm-100: #effdca;
+    --color-inch-worm-200: #defb9b;
+    --color-inch-worm-300: #c7f462;
+    --color-inch-worm-400: #b5eb44;
+    --color-inch-worm-500: #8fcf13;
+    --color-inch-worm-600: #6ea60a;
+    --color-inch-worm-700: #537e0d;
+    --color-inch-worm-800: #446311;
+    --color-inch-worm-900: #3a5413;
+    --color-inch-worm-950: #1c2f04;
+
+    --color-danube-50: #f2f8fb;
+    --color-danube-100: #e8f2f7;
+    --color-danube-200: #d5e7f0;
+    --color-danube-300: #bbd7e6;
+    --color-danube-400: #9fc2da;
+    --color-danube-500: #87aacd;
+    --color-danube-600: #7192be;
+    --color-danube-700: #5d7ba5;
+    --color-danube-800: #4d6586;
+    --color-danube-900: #43566c;
+    --color-danube-950: #27313f;
 
 
-    --color-eggplant-50: #fff2fe;
-    --color-eggplant-100: #ffe4ff;
-    --color-eggplant-200: #ffc9fd;
-    --color-eggplant-300: #ff9ef9;
-    --color-eggplant-400: #ff64f3;
-    --color-eggplant-500: #ff2bf6;
-    --color-eggplant-600: #ef0aeb;
-    --color-eggplant-700: #c704bf;
-    --color-eggplant-800: #a4069c;
-    --color-eggplant-900: #840b7c;
-    --color-eggplant-950: #5a0054;
+    --color-lavender-rose-50: #fdf5fe;
+    --color-lavender-rose-100: #fbeafd;
+    --color-lavender-rose-200: #f5d4fa;
+    --color-lavender-rose-300: #eda2f2;
+    --color-lavender-rose-400: #e885ed;
+    --color-lavender-rose-500: #d956df;
+    --color-lavender-rose-600: #bf36c3;
+    --color-lavender-rose-700: #a12aa1;
+    --color-lavender-rose-800: #842483;
+    --color-lavender-rose-900: #6c236a;
+    --color-lavender-rose-950: #470b45;
 
+
+    --color-lavender-purple-50: #f8f7fb;
+    --color-lavender-purple-100: #f2f1f6;
+    --color-lavender-purple-200: #e7e5ef;
+    --color-lavender-purple-300: #d4d0e2;
+    --color-lavender-purple-400: #bbb4d1;
+    --color-lavender-purple-500: #a295bd;
+    --color-lavender-purple-600: #8c7aa9;
+    --color-lavender-purple-700: #7c6a97;
+    --color-lavender-purple-800: #68587f;
+    --color-lavender-purple-900: #564a68;
+    --color-lavender-purple-950: #373045;
 
     --color-dark-one: #222222;
     --color-dark-two: #252525;
-
-
 }
