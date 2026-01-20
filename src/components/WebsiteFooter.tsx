@@ -27,7 +27,7 @@ export const WebsiteFooter: React.FC = () => {
                     <div className="cursor-pointer space-y-2 grid md:grid-cols-2">
                         {
                             tabs.map((tab   ) => (
-                                <p>{tab.value}</p>
+                                <p key={tab.id}>{tab.value}</p>
                             ))
                         }
                     </div>
