@@ -1,14 +1,10 @@
 export interface Event {
-    id: number;
-    title: string;
-    date: string; // ISO 8601 date string
-    venue: string;
-    city: string;
-    capacity: number;
-    ticketsSold: number;
-    price: number;
-    category: string;
+    event_id: number;
+    name: string;
+    date: string
+    location: string;
+    amount: number;
     description: string;
-    imageUrl: string;
-    organizer: string;
+    startTime: string;
+    endTime: string;
 }
