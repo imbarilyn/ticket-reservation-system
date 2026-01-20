@@ -16,7 +16,7 @@ function EventDetailComponent() {
     const evnt: Event = Route.useLoaderData();
     return (
         <div>
-            <h1>{evnt.title}</h1>
+            <h1>{evnt.name}</h1>
             <p>{evnt.description}</p>
             {/* Render other event details here */}
         </div>
