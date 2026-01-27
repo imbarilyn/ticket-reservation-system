@@ -1,5 +1,6 @@
 import React from "react";
 import {Linkedin, Mail} from "lucide-react";
+import {Link} from "@tanstack/react-router";
 
 
 export const WebsiteFooter: React.FC = () => {
@@ -16,11 +17,14 @@ export const WebsiteFooter: React.FC = () => {
     } []
 
     return(
-        <div className="w-10/12  lg:pt-28 pt-10 pb-2 mx-auto text-white items-center justify-between">
+        <div className="w-10/12  lg:pt-28 pt-10 pb-2 mx-auto  items-center justify-between">
             <div className="grid grid-cols-3">
                 <div className="md:col-span-1  col-span-3 ">
                     {/*<img src={MyLogo} alt="my-logo image" className="w-50"/>*/}
-                    <a href="/" className="cursor-pointer text-inch-worm-500 text-2xl font-bold">Tiko</a>
+                    <Link to="/">
+                        <span className="cursor-pointer text-pumpkin-500 text-2xl font-bold">Tik</span><span className="text-picton-blue-500 text-2xl font-boldcursor-pointer ">o</span>
+
+                    </Link>
                 </div>
                 <div className="col-span-2 md:col-span-1 space-y-2">
                     <p className="text-stone-400 md:text-xl text-sm">Quick Links</p>
