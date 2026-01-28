@@ -11,6 +11,5 @@ export const apiRequest = async (endpoint: string, options={}) =>{
              errorData.message || "Something went wrong please try again"
          )
      }
-     console.log('API Response:', response);
      return  response.json()
 }
