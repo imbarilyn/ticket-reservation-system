@@ -13,7 +13,39 @@ export const Route =  createFileRoute('/(events)/events/$eventId')({
 
 
 function EventDetailComponent() {
-    const evnt: Event = Route.useLoaderData();
+    const navigate = useNavigate()
+    const {data: event=[], isError, isPending, error, refetch} = useQuery(eventQueryOptions(Route.useParams().eventId))
+
+    if(isPending){
+        return <p className="text-white">Loading...</p>
+    }
+    if(isError){
+        return <ErrorComponent error={error} refetch={refetch}/>
+    }
+
+
+    const formatterFn = (date: string, type: string) => {
+        switch (type) {
+            case 'date':
+                return moment(date).format('dddd, MMMM DD YYYY')
+            case 'time':
+                return moment(date, 'HH:mm').format('hh:mm A')
+            default:
+                return
+        }
+    }
+
+    const checkoutPayment = (eventId: number) =>{
+
+        navigate({
+            to: '/payments/$eventId',
+            params: {
+                eventId: String(eventId)
+            }
+        })
+
+    }
+    const iconColor = '#defb9b'
     return (
         <div className="xl:pt-48 pt-28 2xl:w-8/12 w-10/12  gap-4 mx-auto xl:flex xl:justify-between space-y-16">
             <div className="xl:max-w-lg space-y-10">
