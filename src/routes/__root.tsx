@@ -1,27 +1,25 @@
-import { Outlet, createRootRoute } from '@tanstack/react-router'
+import {Outlet, createRootRouteWithContext} from '@tanstack/react-router'
 import {TanStackRouterDevtools} from "@tanstack/router-devtools";
-import {WebsiteHeader} from "../components/WebsiteHeader.tsx";
-import {WebsiteFooter} from "../components/WebsiteFooter.tsx";
+import type {RouterContext} from "../types/types.ts";
 
 
-export const Route = createRootRoute({
-  component: RootComponent,
-    notFoundComponent: ()=>{
-      return(
-          <>
-              <p className="text-rose-400">Page not Found</p>
-          </>
-      )
+export const Route = createRootRouteWithContext<RouterContext>()({
+    component: RootComponent,
+    notFoundComponent: () => {
+        return (
+            <>
+                <p className="text-rose-400">Page not Found</p>
+            </>
+        )
     }
 })
 
 function RootComponent() {
-  return (
-    <div className="bg-dark-one min-h-screen">
-      <WebsiteHeader />
-      <Outlet />
-        <WebsiteFooter />
-        <TanStackRouterDevtools position="bottom-right" />
-    </div>
-  )
+    return (
+        <div className="min-h-screen" id='background'>
+
+            <Outlet/>
+            <TanStackRouterDevtools position="bottom-right"/>
+        </div>
+    )
 }
