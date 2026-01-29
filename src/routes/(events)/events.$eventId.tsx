@@ -4,8 +4,11 @@ import {type Event} from "../../types/types.ts";
 import {ErrorComponent} from "../../components/ErrorComponent.tsx";
 
 
-export const Route =  createFileRoute('/(events)/events/$eventId')({
-    loader: async({params: {eventId}}) =>  fetchEventById(eventId),
+export const Route = createFileRoute('/(events)/events/$eventId')({
+    loader: async ({context, params: {eventId}}) => {
+        const event = await context.queryClient.ensureQueryData(eventQueryOptions(eventId))
+        return {event};
+    },
     component: EventDetailComponent,
     errorComponent: ErrorComponent,
 
