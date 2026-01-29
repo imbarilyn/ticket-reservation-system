@@ -1,8 +1,18 @@
-import {createFileRoute} from "@tanstack/react-router";
+import {createFileRoute, useNavigate} from "@tanstack/react-router";
 import {fetchEventById} from "../../services/events.service.ts";
-import {type Event} from "../../types/types.ts";
 import {ErrorComponent} from "../../components/ErrorComponent.tsx";
+import screenshoot2 from "../../assets/images/screenshoot4.png"
+import {Calendar, MapPin, Share2} from "lucide-react";
+import moment from 'moment'
+import {queryOptions, useQuery} from "@tanstack/react-query";
 
+const eventQueryOptions = (eventId: string) =>{
+    return queryOptions({
+        queryKey: ['event', eventId],
+        queryFn: () => fetchEventById(eventId),
+    })
+
+}
 
 export const Route = createFileRoute('/(events)/events/$eventId')({
     loader: async ({context, params: {eventId}}) => {
@@ -10,9 +20,9 @@ export const Route = createFileRoute('/(events)/events/$eventId')({
         return {event};
     },
     component: EventDetailComponent,
-    errorComponent: ErrorComponent,
-
 })
+
+
 
 
 function EventDetailComponent() {
