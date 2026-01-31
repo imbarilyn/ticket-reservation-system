@@ -1,7 +1,8 @@
 import {gsap} from "gsap";
 import {SplitText} from "gsap/SplitText";
 import {useEffect, useRef} from "react";
-import  vid2  from '../assets/videos/vid2.mp4';
+// import  vid2  from '../assets/videos/vid2.mp4';
+import HeroImage from '../assets/images/hero8.jpg';
 
 
 
