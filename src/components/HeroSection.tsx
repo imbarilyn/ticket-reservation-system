@@ -45,15 +45,14 @@ export function HeroSection() {
 
 
     return (
-        <div  ref={heroRef} className="relative w-full mt-4  h-[300px] md:h-[450px]">
-            <video className="asolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted>
-                <source src={vid2} type="video/mp4" />
-                import vid1 from "../v
-                Your browser does not support the video tag.
-            </video>
-            <div ref={splitRef } className="text-center text-Urbanist absolute top-1/2 text-5xl font-bold -translate-y-1/2 left-1/2 -translate-x-1/2">
-                Don’t just watch. Be there where moments become memories. Live events, done right.
-
+        <div  ref={heroRef} className="relative w-full  h-[150px] md:h-[450px]">
+            <div className="absolute inset-0">
+                <img src={HeroImage} className="h-full w-full object-cover"/>
+            </div>
+            <div className="absolute bottom-0  pb-4 ps-4 md:pb-10  md:ps-32">
+                <button className="cursor-pointer btn-ghost btn-sm bg-linear-to-r  from-supernova-rose-500 to-pumpkin-500 md:px-4 px-3 py-0.5 md:py-2 rounded-xl">
+                    <span className="text-white text-sm  font-bold">Sell Event</span>
+                </button>
             </div>
         </div>
     )
