@@ -203,7 +203,24 @@ font-style: normal;
 
     font-style: italic;
 }
+.animate-shimmer {
+    background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 37%, #e5e7eb 63%);
+    background-size: 80% 400%;
+    animation: shimmer 1.4s ease infinite;
+}
 
+@keyframes shimmer {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+}
+
+#background {
+    height: 100%;
+    background-image: radial-gradient(farthest-corner at 70% 60%, #fff4ed, #f1e9fe, #fef2c3);
+}
+#background-evet-cards{
+    background-image: linear-gradient(180deg,  #fefae8, #f1e9fe, #fefae8);
+}
 
 /*Custom themes*/
 @theme {
@@ -231,55 +248,68 @@ font-style: normal;
 
 /*custom colors*/
 @theme {
-    --color-inch-worm-50: #f8fee7;
-    --color-inch-worm-100: #effdca;
-    --color-inch-worm-200: #defb9b;
-    --color-inch-worm-300: #c7f462;
-    --color-inch-worm-400: #b5eb44;
-    --color-inch-worm-500: #8fcf13;
-    --color-inch-worm-600: #6ea60a;
-    --color-inch-worm-700: #537e0d;
-    --color-inch-worm-800: #446311;
-    --color-inch-worm-900: #3a5413;
-    --color-inch-worm-950: #1c2f04;
+    --color-pumpkin-50: #fff4ed;
+    --color-pumpkin-100: #ffe6d5;
+    --color-pumpkin-200: #feccaa;
+    --color-pumpkin-300: #fdac74;
+    --color-pumpkin-400: #fb8a3c;
+    --color-pumpkin-500: #f97316;
+    --color-pumpkin-600: #ea670c;
+    --color-pumpkin-700: #c2570c;
+    --color-pumpkin-800: #9a4a12;
+    --color-pumpkin-900: #7c3d12;
+    --color-pumpkin-950: #432007;
 
-    --color-danube-50: #f2f8fb;
-    --color-danube-100: #e8f2f7;
-    --color-danube-200: #d5e7f0;
-    --color-danube-300: #bbd7e6;
-    --color-danube-400: #9fc2da;
-    --color-danube-500: #87aacd;
-    --color-danube-600: #7192be;
-    --color-danube-700: #5d7ba5;
-    --color-danube-800: #4d6586;
-    --color-danube-900: #43566c;
-    --color-danube-950: #27313f;
-
-
-    --color-lavender-rose-50: #fdf5fe;
-    --color-lavender-rose-100: #fbeafd;
-    --color-lavender-rose-200: #f5d4fa;
-    --color-lavender-rose-300: #eda2f2;
-    --color-lavender-rose-400: #e885ed;
-    --color-lavender-rose-500: #d956df;
-    --color-lavender-rose-600: #bf36c3;
-    --color-lavender-rose-700: #a12aa1;
-    --color-lavender-rose-800: #842483;
-    --color-lavender-rose-900: #6c236a;
-    --color-lavender-rose-950: #470b45;
+    --color-picton-blue-50: #f2f9fd;
+    --color-picton-blue-100: #e4f0fa;
+    --color-picton-blue-200: #c2e2f5;
+    --color-picton-blue-300: #8dcbec;
+    --color-picton-blue-400: #4baedf;
+    --color-picton-blue-500: #2997ce;
+    --color-picton-blue-600: #1b79ae;
+    --color-picton-blue-700: #17608d;
+    --color-picton-blue-800: #175275;
+    --color-picton-blue-900: #184562;
+    --color-picton-blue-950: #102c41;
 
 
-    --color-lavender-purple-50: #f8f7fb;
-    --color-lavender-purple-100: #f2f1f6;
-    --color-lavender-purple-200: #e7e5ef;
-    --color-lavender-purple-300: #d4d0e2;
-    --color-lavender-purple-400: #bbb4d1;
-    --color-lavender-purple-500: #a295bd;
-    --color-lavender-purple-600: #8c7aa9;
-    --color-lavender-purple-700: #7c6a97;
-    --color-lavender-purple-800: #68587f;
-    --color-lavender-purple-900: #564a68;
-    --color-lavender-purple-950: #373045;
+    --color-supernova-rose-50: #fefae8;
+    --color-supernova-rose-100: #fef2c3;
+    --color-supernova-rose-200: #fee78a;
+    --color-supernova-rose-300: #fdd847;
+    --color-supernova-rose-400: #facc15;
+    --color-supernova-rose-500: #eabd08;
+    --color-supernova-rose-600: #caa204;
+    --color-supernova-rose-700: #a18207;
+    --color-supernova-rose-800: #856d0e;
+    --color-supernova-rose-900: #715e12;
+    --color-supernova-rose-950: #423606;
+
+
+
+    --color-daisy-bush-50: #f8f3ff;
+    --color-daisy-bush-100: #f1e9fe;
+    --color-daisy-bush-200: #e6d6fe;
+    --color-daisy-bush-300: #d1b5fd;
+    --color-daisy-bush-400: #b68bfa;
+    --color-daisy-bush-500: #985cf6;
+    --color-daisy-bush-600: #803aed;
+    --color-daisy-bush-700: #6d28d9;
+    --color-daisy-bush-800: #5b21b6;
+    --color-daisy-bush-900: #4c1d95;
+    --color-daisy-bush-950: #311065;
+
+    --color-serenade-50: #fff7ed;
+    --color-serenade-100: #ffecd5;
+    --color-serenade-200: #fed9aa;
+    --color-serenade-300: #fdc074;
+    --color-serenade-400: #fba63c;
+    --color-serenade-500: #f99416;
+    --color-serenade-600: #ea870c;
+    --color-serenade-700: #c2710c;
+    --color-serenade-800: #9a5e12;
+    --color-serenade-900: #7c4d12;
+    --color-serenade-950: #432807;
 
     --color-dark-one: #222222;
     --color-dark-two: #252525;
