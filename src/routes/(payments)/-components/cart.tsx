@@ -1,8 +1,7 @@
 import {Minus, Plus, Trash} from "lucide-react"
-import {
-    addToCart, ticketCountByCategory, clearCart, removeFromCart,
-} from "../../../stores/cart.ts";
-import {useEffect, useState} from "react";
+import {addToCart, ticketCountByCategory, clearCart, removeFromCart} from "../../../stores/cart.ts";
+import { useState} from "react";
+import {setIsDialog} from "../../../stores/ticket.ts";
 
 
 
@@ -14,12 +13,16 @@ interface CartComponentProps {
 
 }
 
-export const CartComponent = ({amount, id, name, categoryId}: CartComponentProps)  => {
-const [addToCartButtonCount, setAddToCartButtonCount] = useState(ticketCountByCategory(categoryId) || 0)
-    useEffect(() => {
-        // console.log('Cart count---', ticketCountByCategory(categoryId))
-        setAddToCartButtonCount(ticketCountByCategory(categoryId));
-    }, [categoryId])
+export const Cart = ({amount, id, name, categoryId }: CartComponentProps)  => {
+const [itemCount, setItemCount] = useState(0)
+    if(itemCount > 0){
+        setIsDialog(true)
+    } else {
+        setIsDialog(false)
+    }
+
+
+
 const addTicket = () => {
     console.log('addToCartButtonCount', addToCartButtonCount)
     setAddToCartButtonCount(ticketCountByCategory(categoryId));
@@ -30,16 +33,19 @@ const addTicket = () => {
         amount,
         categoryId,
     })
+    setItemCount(ticketCountByCategory(categoryId));
 }
 
 const deleteTicket = (categoryId: string) => {
-    setAddToCartButtonCount(ticketCountByCategory(categoryId));
     removeFromCart(categoryId)
+    setItemCount(ticketCountByCategory(categoryId));
+
 }
 
 const emptyCart = (categoryId: string) => {
-    setAddToCartButtonCount(0);
     clearCart(categoryId)
+    setItemCount(ticketCountByCategory(categoryId));
+
 }
 
 
@@ -47,7 +53,7 @@ const emptyCart = (categoryId: string) => {
 return (
     <div className="space-y-2 ">
         {
-            addToCartButtonCount === 0? (
+            itemCount === 0? (
                 <button onClick={() => {
                     addTicket()
                 }} className="btn btn-sm cursor-pointer px-6 py-2 rounded-lg bg-picton-blue-300 ">
