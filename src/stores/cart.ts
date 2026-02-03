@@ -43,10 +43,14 @@ export const removeFromCart = (categoryId: string) => {
                  return i.categoryId === categoryId? {...i, quantity: i.quantity -1}: i
              })
          })
-   } else{
-         return
    }
-   console.log('Items remaining after deleting', cartStore.state.items)
+   if(isTicketInCart && isTicketInCart.quantity === 1){
+         cartStore.setState({
+              items: cartStore.state.items.filter(i =>{
+                return i.categoryId !== categoryId
+              })
+         })
+   }
 }
 
 export const clearCart = (categoryId: string)=>{
