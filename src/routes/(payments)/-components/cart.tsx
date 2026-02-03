@@ -24,9 +24,6 @@ const [itemCount, setItemCount] = useState(0)
 
 
 const addTicket = () => {
-    console.log('addToCartButtonCount', addToCartButtonCount)
-    setAddToCartButtonCount(ticketCountByCategory(categoryId));
-    console.log('addToCartButtonCount', addToCartButtonCount)
     addToCart({
         id,
         name,
