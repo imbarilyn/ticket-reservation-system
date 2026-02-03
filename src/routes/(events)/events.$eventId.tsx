@@ -30,7 +30,7 @@ function EventDetailComponent() {
     const {data: event=[], isError, isPending, error, refetch} = useQuery(eventQueryOptions(Route.useParams().eventId))
 
     if(isPending){
-        return <p className="text-white">Loading...</p>
+        return <p className="">Loading...</p>
     }
     if(isError){
         return <ErrorComponent error={error} refetch={refetch}/>
@@ -48,10 +48,9 @@ function EventDetailComponent() {
         }
     }
 
-    const checkoutPayment = (eventId: number) =>{
-
+    const checkoutPayment = (eventId: string) =>{
         navigate({
-            to: '/payments/$eventId',
+            to: '/payments/$eventId/ticket',
             params: {
                 eventId: String(eventId)
             }
