@@ -15,7 +15,6 @@ const eventQueryOption = (eventId: string) => {
     }
 }
 
-
 export const Route = createFileRoute('/(payments)/payments/$eventId/ticket')({
     loader: async ({context, params: {eventId}}) => {
         const event: Event = await context.queryClient.ensureQueryData(eventQueryOption(eventId))
@@ -39,8 +38,9 @@ function RouteComponent() {
             </div>
         )
     }
+
     return (
-        <div>
+        <div className=" relative ">
             <div className="bg-white py-6 px-8 space-y-1">
                <div className="--space-y-1">
                    <div className="flex  items-center gap-2">
