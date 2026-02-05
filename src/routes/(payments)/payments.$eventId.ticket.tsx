@@ -76,6 +76,13 @@ function RouteComponent() {
                     </div>
                 </div>
             </div>
+            {
+                isDialogOpen && (<div className="bg-white fixed bottom-0 left-0 w-full px-6 py-4 flex justify-between items-center border-t-[1px] border-gray-300">
+                    <p className="text-lg font-semibold text-pumpkin-900">Total: Kes. {totalAmount}</p>
+                    <p><Tickets /></p>
+                    <span> tickets</span>
+                </div>)
+            }
         </div>
     )
 }
