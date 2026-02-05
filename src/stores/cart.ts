@@ -67,17 +67,17 @@ export const removeFromCart = (ticket: Omit<CartTicket, 'quantity'>) => {
    }
 }
 
+// Delete everything in the cart
 export const clearCart = (categoryId: string)=>{
     const isTicketInCart = cartStore.state.items.find(i => i.categoryId === categoryId)
     if(isTicketInCart){
-        cartStore.setState({
-            items: cartStore.state.items.filter(i =>{
-                return i.categoryId !== categoryId
-            })
+        cartStore.setState((preVal)=>{
+            return {
+                ...preVal,
+                items: preVal.items.filter(i => i.categoryId !== categoryId)
+            }
         })
-        console.log('Item removed from cart', cartStore.state.items)
     }
-
 }
 
 export const totalAmount = () => {
