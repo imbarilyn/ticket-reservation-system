@@ -34,7 +34,12 @@ const addTicket = () => {
 }
 
 const deleteTicket = (categoryId: string) => {
-    removeFromCart(categoryId)
+    removeFromCart({
+        id,
+        name,
+        amount,
+        categoryId
+    })
     setItemCount(ticketCountByCategory(categoryId));
 
 }
