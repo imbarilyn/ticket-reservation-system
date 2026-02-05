@@ -26,6 +26,9 @@ export const Route = createFileRoute('/(payments)/payments/$eventId/ticket')({
 
 function RouteComponent() {
     const {data: event = [], isError, isPending, error, refetch} = useQuery(eventQueryOption(Route.useParams().eventId))
+    const isDialogOpen  =  useStore(ticketStore, (state)=> state.isDialogOpen);
+    const useCartStore = useStore(cartStore, (s)=> s);
+    const totalAmount = useCartStore.items.reduce((acc, item) => acc +  Number(item.amount), 0);
     if (isPending) {
         return <div>Loading...</div>
     }
