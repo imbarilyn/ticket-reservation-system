@@ -15,7 +15,7 @@ interface CartItem {
 
 
 export const cartStore = new Store<CartItem>({
-    items: [],
+    items: []
 })
 
 export const addToCart = (ticket: Omit<CartTicket, 'quantity'>) => {
@@ -44,22 +44,26 @@ export const addToCart = (ticket: Omit<CartTicket, 'quantity'>) => {
     }
 }
 
-export const removeFromCart = (categoryId: string) => {
-   const isTicketInCart = cartStore.state.items.find(t => t.categoryId === categoryId)
+
+// Delete a single item from the cart at a time
+export const removeFromCart = (ticket: Omit<CartTicket, 'quantity'>) => {
+   const isTicketInCart = cartStore.state.items.find(t => t.categoryId === ticket.categoryId)
    if(isTicketInCart && isTicketInCart.quantity > 1){
        console.log("We found the item in cart for deletion")
-         cartStore.setState({
-             items: cartStore.state.items.map(i =>{
-                 return i.categoryId === categoryId? {...i, quantity: i.quantity -1}: i
-             })
-         })
+       cartStore.setState(prevState=> {
+           return {
+               ...prevState,
+               items: prevState.items.map(s => s.categoryId === ticket.categoryId? {...s, quantity: s.quantity -1, amount: String(Number(s.amount) - Number(ticket.amount)) }: s),
+           }
+       })
    }
    if(isTicketInCart && isTicketInCart.quantity === 1){
-         cartStore.setState({
-              items: cartStore.state.items.filter(i =>{
-                return i.categoryId !== categoryId
-              })
-         })
+       cartStore.setState((preVal)=>{
+           return {
+               ...preVal,
+                items: preVal.items.filter(i => i.categoryId !== ticket.categoryId)
+           }
+       })
    }
 }
 
