@@ -80,14 +80,7 @@ export const clearCart = (categoryId: string)=>{
     }
 }
 
-export const totalAmount = () => {
-    return cartStore.state.items.reduce((total, item) => total + (Number(item.amount) * (item.quantity)), 0)
-}
-
-export const itemCount =  ()=>{
-    return cartStore.state.items.reduce((count, item) => count + item.quantity, 0)
-}
-
+// Get total ticket count by category
 export const ticketCountByCategory = (categoryId: string) => {
     const ticket = cartStore.state.items.find(i => i.categoryId === categoryId)
     return ticket ? ticket.quantity : 0
