@@ -21,15 +21,25 @@ export const cartStore = new Store<CartItem>({
 export const addToCart = (ticket: Omit<CartTicket, 'quantity'>) => {
     const isTicketInCart = cartStore.state.items.find(i => i.categoryId === ticket.categoryId)
     if (isTicketInCart){
-        cartStore.setState(({
-            items: cartStore.state.items.map(i =>{
-                return i.categoryId === ticket.categoryId? {...i, quantity: i.quantity + 1}: i
-            })
-        }))
-        console.log('We have added something', cartStore.state.items)
+        cartStore.setState((preVal)=>{
+          return {
+              ...preVal,
+              items: preVal.items.map(s => s.categoryId === ticket.categoryId? {...s, quantity: s.quantity + 1, amount: String(Number(s.amount) + Number(ticket.amount))}: s)
+          }
+        })
     } else{
-        cartStore.setState({
-            items: [...cartStore.state.items, {...ticket, quantity: 1} as CartTicket],
+        cartStore.setState((prevState)=>{
+            if(prevState.items.length === 0){
+                console.log("Nothing in cart", cartStore.state.items)
+                return {
+                    ...prevState,
+                    items: [...prevState.items, {...ticket, quantity: 1}]
+                }
+            }
+            return {
+                ...prevState,
+                items: [...prevState.items, {...ticket, quantity: 1}]
+            }
         })
     }
 }
