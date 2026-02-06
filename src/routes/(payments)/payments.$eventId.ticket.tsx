@@ -39,12 +39,18 @@ function RouteComponent() {
         )
     }
 
+    const handleGoBack =  ()=>{
+       void navigate({
+           to: '..'
+       })
+    }
+
     return (
         <div className=" relative ">
             <div className="bg-white py-6 px-8 space-y-1">
                <div className="--space-y-1">
                    <div className="flex  items-center gap-2">
-                      <button className="flex h-5 w-5 border-[2px] border-pumpkin-600 rounded-full justify-center items-center cursor-pointer font-bold"> <ChevronLeft color="#f97316"/></button>
+                      <button onClick={handleGoBack} className="flex h-5 w-5 border-[2px] border-pumpkin-600 rounded-full justify-center items-center cursor-pointer font-bold"> <ChevronLeft color="#f97316"/></button>
                        <h1 className=" text-3xl text-pumpkin-600 font-bold ">{event.name} World Tour</h1>
                    </div>
                    <h1 className=" text-lg text-slate-600">{event.description}</h1>
