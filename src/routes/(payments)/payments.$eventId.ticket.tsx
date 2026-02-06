@@ -1,4 +1,4 @@
-import {createFileRoute} from '@tanstack/react-router'
+import {createFileRoute, useNavigate} from '@tanstack/react-router'
 import {fetchEventById} from "../../services/events.service.ts";
 import {useQuery} from "@tanstack/react-query";
 import {ErrorComponent} from "../../components/ErrorComponent.tsx";
@@ -71,22 +71,10 @@ function RouteComponent() {
                 </div>
                 <div className=" grid grid-cols-3 gap-6">
                     <div
-                        className="space-y-2 bg-neutral block col-span-3 xl:col-span-1 max-w-sm p-6 border-[2px] border-pumpkin-100/70 rounded-2xl shadow-lg">
-                        <h5 className="mb-3 text-2xl text-pumpkin-900 font-semibold tracking-tight text-heading leading-8">Die hard</h5>
-                        <p className="text-md text-pumpkin-900">Enjoy {event.name} event at a discount of 2%</p>
-                        <CartComponent amount={event.amount} id={event.event_id} categoryId={event.event_id} name={event.name}/>
-                    </div>
-                    <div
-                        className="space-y-2 bg-neutral block col-span-3 xl:col-span-1 max-w-sm p-6 border-[2px] border-pumpkin-100/70 rounded-2xl shadow-lg">
-                        <h5 className="mb-3 text-2xl  text-pumpkin-900 font-semibold tracking-tight text-heading leading-8">Die hard</h5>
-                        <p className="text-md text-pumpkin-900">Enjoy {event.name} event at a discount of 2%</p>
-                        <CartComponent amount={event.amount} id={event.event_id} categoryId={event.event_id} name={event.name}/>
-                    </div>
-                    <div
                         className="bg-neutral block col-span-3 xl:col-span-1 max-w-sm p-6 border-[2px] border-pumpkin-100/70 rounded-2xl shadow-lg">
                         <h5 className="mb-3 text-2xl  text-pumpkin-900 font-semibold tracking-tight text-heading leading-8">Die hard</h5>
                         <p className="text-md text-pumpkin-900">Enjoy {event.name} event at a discount of 2%</p>
-                        <CartComponent amount={event.amount} id={event.event_id} categoryId={event.event_id} name={event.name}/>
+                        <Cart  amount={event.amount} id={event.event_id} categoryId={event.event_id} name={event.name}/>
                     </div>
                 </div>
             </div>
