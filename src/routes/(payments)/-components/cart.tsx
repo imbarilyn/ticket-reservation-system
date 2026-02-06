@@ -49,9 +49,6 @@ const emptyCart = (categoryId: string) => {
     setItemCount(ticketCountByCategory(categoryId));
 
 }
-
-
-
 return (
     <div className="space-y-2 ">
         {
