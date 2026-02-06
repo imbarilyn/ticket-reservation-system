@@ -3,9 +3,13 @@ import {fetchEventById} from "../../services/events.service.ts";
 import {useQuery} from "@tanstack/react-query";
 import {ErrorComponent} from "../../components/ErrorComponent.tsx";
 import {type Event} from "../../types/types.ts";
-import {CartComponent} from "./-components/cart.tsx";
+import {Cart } from "./-components/cart.tsx";
 import {ProgressComponent} from "./-components/progressComponent.tsx";
 import {ChevronLeft} from "lucide-react";
+import {ticketStore} from "../../stores/ticket.ts";
+import {useStore} from "@tanstack/react-store";
+import {Tickets} from "lucide-react";
+import { cartStore} from "../../stores/cart.ts";
 
 
 const eventQueryOption = (eventId: string) => {
