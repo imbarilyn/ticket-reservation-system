@@ -32,6 +32,7 @@ function RouteComponent() {
     const isDialogOpen  =  useStore(ticketStore, (state)=> state.isDialogOpen);
     const useCartStore = useStore(cartStore, (s)=> s);
     const totalAmount = useCartStore.items.reduce((acc, item) => acc +  Number(item.amount), 0);
+    const navigate = useNavigate()
     if (isPending) {
         return <div>Loading...</div>
     }
